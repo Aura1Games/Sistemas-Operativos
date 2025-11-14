@@ -16,7 +16,7 @@ Los scripts en el repositorio actual forman parte del contenido del serviodor qu
 - `config.sh` ( Script repositorio de funciónes usadas en ABM_Usuarios.sh y ABM_Grupos.sh )
 - `configFirewall.sh` ( Script repositorio de funciónes usadas en firewall.sh )
 
-#### Arvhicos de respaldos
+#### Archivos de respaldos
 ###### /opt/script
 - |- `scriptRespaldoFULL.sh` ( script de respaldos completos/full backup )
 - |- `scriptRespaldoIncremental.sh` ( script de respaldos incrementales )
@@ -30,3 +30,11 @@ La administración de contenedores se encuentra dentro del archivo `Menu_abm.sh`
 - |- Consultar contenedores de docker (comando `docker ps -a`)
 - |- Consultar volumenes de docker (comando `docker volume ls`)
 
+#### Ejemplo de logs
+###### /var/log/proyectoAura.log
+Archivo con separación `-` en el cual usar el comando `awk` para obtener información por campos 
+```bash
+# Busca por logs de usuario, los registrados el día 08 
+awk -F- '$7 == 08 && $2 == "usuario" {print $0}' /var/log/proyectoAura.log
+
+```
